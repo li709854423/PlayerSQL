@@ -4,7 +4,7 @@
 
     <groupId>com.mengcraft</groupId>
     <artifactId>playersql</artifactId>
-    <version>2.6.1</version>
+    <version>2.6.2</version>
     <name>PlayerSQL</name>
 
     <properties>
@@ -65,27 +65,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <configuration>
-                            <artifactSet>
-                                <includes>
-                                    <include>com.mengcraft:simpleorm</include>
-                                </includes>
-                            </artifactSet>
-                            <relocations>
-                                <relocation>
-                                    <pattern>com.mengcraft.simpleorm</pattern>
-                                    <shadedPattern>com.mengcraft.playersql.lib.simpleorm</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
+                <configuration>
+                    <!--用这个插件来deploy,或者发布到中央仓库, 这个属性会缩减你的pom文件,会把你依赖的<dependency>干掉 ,应该改为false -->
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <!-- 不打包没调用的类 -->
+                    <minimizeJar>true</minimizeJar>
+                    <artifactSet>
+                        <includes>
+                            <include>com.mengcraft:simpleorm</include>
+                        </includes>
+                    </artifactSet>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.mengcraft.simpleorm</pattern>
+                            <shadedPattern>com.mengcraft.playersql.lib.simpleorm</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
             </plugin>
         </plugins>
     </build>

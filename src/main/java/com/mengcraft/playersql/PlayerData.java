@@ -2,10 +2,7 @@ package com.mengcraft.playersql;
 
 import com.avaje.ebean.annotation.UpdatedTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -29,6 +26,7 @@ public class PlayerData {
 
     private int hand;
 
+    @Transient
     private int exp;
 
     @Column(columnDefinition = "TEXT")
