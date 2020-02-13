@@ -26,7 +26,13 @@
             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
     </repositories>
-
+    <distributionManagement>
+        <repository>
+            <id>mc</id>
+            <name>Nexus Mc Repository</name>
+            <url>http://192.168.50.249:8081/repository/minecraft/</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
@@ -37,12 +43,12 @@
         <dependency>
             <groupId>com.mengcraft</groupId>
             <artifactId>simpleorm</artifactId>
-            <version>0.7</version>
+            <version>0.8.3</version>
         </dependency>
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
             <artifactId>ProtocolLib</artifactId>
-            <version>4.1.0</version>
+            <version>4.4.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
